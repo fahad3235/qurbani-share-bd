@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qurbani Share BD</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1 id="appTitle"></h1>
+    <p id="appTagline" class="tagline"></p>
+  </div>
+  <button id="langToggle" class="lang-btn" type="button" aria-label="Toggle language"></button>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button type="button" class="tab" data-tab="groups"></button>
+  <button type="button" class="tab" data-tab="dashboard"></button>
+  <button type="button" class="tab" data-tab="data"></button>
+</nav>
+
+<main>
+  <!-- GROUPS VIEW -->
+  <section id="view-groups" class="view">
+    <div class="card">
+      <h2 id="newGroupHeading"></h2>
+      <form id="groupForm" novalidate>
+        <div class="field">
+          <label id="lblGroupName" for="fName"></label>
+          <input id="fName" type="text" maxlength="80" autocomplete="off">
+          <p class="err" id="eName"></p>
+        </div>
+        <div class="field">
+          <label id="lblAnimal" for="fAnimal"></label>
+          <select id="fAnimal">
+            <option value="cow"></option>
+            <option value="buffalo"></option>
+            <option value="goat"></option>
+            <option value="sheep"></option>
+            <option value="camel"></option>
+          </select>
+        </div>
+        <div class="field">
+          <label id="lblShares" for="fShares"></label>
+          <select id="fShares"></select>
+          <p class="note" id="sharesNote"></p>
+        </div>
+        <div class="grid3">
+          <div class="field">
+            <label id="lblAnimalCost" for="fAnimalCost"></label>
+            <input id="fAnimalCost" type="number" min="0" step="1" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label id="lblButcher" for="fButcher"></label>
+            <input id="fButcher" type="number" min="0" step="1" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label id="lblTransport" for="fTransport"></label>
+            <input id="fTransport" type="number" min="0" step="1" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label id="lblOther" for="fOther"></label>
+            <input id="fOther" type="number" min="0" step="1" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label id="lblDate" for="fDate"></label>
+            <input id="fDate" type="date">
+          </div>
+        </div>
+        <p class="err" id="eForm"></p>
+        <div class="actions">
+          <button type="submit" class="btn primary" id="btnSaveGroup"></button>
+          <button type="button" class="btn" id="btnCancelEdit" hidden></button>
+        </div>
+      </form>
+    </div>
+
+    <div id="emptyState" class="card empty" hidden>
+      <p id="emptyText"></p>
+    </div>
+    <div id="groupList"></div>
+  </section>
+
+  <!-- DASHBOARD VIEW -->
+  <section id="view-dashboard" class="view" hidden>
+    <div class="stats" id="dashStats"></div>
+    <div class="card">
+      <h2 id="dashTableHeading"></h2>
+      <div id="dashTable"></div>
+    </div>
+  </section>
+
+  <!-- DATA VIEW -->
+  <section id="view-data" class="view" hidden>
+    <div class="card">
+      <h2 id="dataHeading"></h2>
+      <p id="exportText"></p>
+      <div class="actions">
+        <button type="button" class="btn primary" id="btnExport"></button>
+      </div>
+      <hr>
+      <p id="importText"></p>
+      <input id="importFile" type="file" accept=".json,application/json">
+      <p class="err" id="eImport"></p>
+      <p class="ok" id="okImport"></p>
+      <hr>
+      <p id="eraseText"></p>
+      <input id="eraseInput" type="text" autocomplete="off" placeholder="DELETE">
+      <div class="actions">
+        <button type="button" class="btn danger" id="btnErase"></button>
+      </div>
+      <p class="err" id="eErase"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p id="disclaimer"></p>
+  <p id="footerNote"></p>
+</footer>
+
+<script src="js/logic.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
